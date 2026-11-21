@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Install Wafer Wallet on Mac, Windows or Android, and set up Wafer Keep on an old phone. Every file is checked against its fingerprint.">
+<meta name="theme-color" content="#1a2b5c">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%231a2b5c'/%3E%3Crect x='14' y='22' width='16' height='20' rx='3' fill='%23fffefa'/%3E%3Crect x='34' y='22' width='16' height='20' rx='3' fill='%23f0c23c'/%3E%3C/svg%3E">
+<title>Download Wafer Wallet</title>
+<script src="../guard-bb41bc9bdde0.js" integrity="sha256-u0G8m93grahKnsRDgqqxjTLPHyxTK26BEKcnTgcXjT4="></script>
+<link rel="stylesheet" href="download-34ee359bbb1e.css" integrity="sha256-NO41m7sefOuYL9hRcPayteTZS4vLCMIZJMLu6l1ExVs=">
+<link rel="stylesheet" href="../mirror.css"><script src="../mirror.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <a class="brand" href="../"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1a2b5c"/><rect x="14" y="22" width="16" height="20" rx="3" fill="#fffefa"/><rect x="34" y="22" width="16" height="20" rx="3" fill="#f0c23c"/></svg>Wafer Wallet</a>
+    <nav aria-label="Pages"><a href="../keep/">Wafer Keep</a><a class="hide-sm" href="#verify">Check a download</a><a class="back" href="../">About the wallet</a></nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>Get Wafer Wallet</h1>
+      <p class="lede">The full wallet as an app for your Mac, Windows PC or Android phone, with Wafer Shield built in. Free, with no account and no email.</p>
+    </div>
+    <ul class="facts" aria-label="About the apps">
+      <li><b>Code</b><span>read from BNB Chain, checked before it runs</span></li>
+      <li><b>Keys</b><span>encrypted on your device, never on a server</span></li>
+      <li><b>Offline</b><span>starts from its own checked copy</span></li>
+    </ul>
+  </section>
+
+  <nav class="picker" aria-label="Choose your device">
+    <a href="#mac-cli" data-os="mac"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20M9 16v4M15 16v4"/></svg>Mac</a>
+    <a href="#windows" data-os="windows"><svg viewBox="0 0 24 24"><path d="M3 5.5 10.5 4.5v7H3zM12.5 4.2 21 3v8.5h-8.5zM3 12.5h7.5v7L3 18.5zM12.5 12.5H21V21l-8.5-1.2z"/></svg>Windows</a>
+    <a href="#android" data-os="android"><svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg>Android</a>
+    <a href="../keep/"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Wafer Keep</a>
+  </nav>
+
+  <div class="list">
+  <section class="card" data-os="mac" id="mac-cli">
+    <div class="side">
+      <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20M9 16v4M15 16v4"/></svg></div>
+      <h2>Mac</h2>
+      <p>Built on your own Mac in one step, so macOS shows no warning.</p>
+      <ul class="req"><li>macOS 12 or newer</li><li>Apple silicon or Intel</li><li>Touch ID unlock</li></ul>
+    </div>
+    <div class="main">
+      <h3>Install from Terminal</h3>
+      <p>Paste this into Terminal. It puts “Wafer Wallet” in your Applications folder; running it again updates the app.</p>
+      <div class="cmd"><code id="cmd">curl -fsSL https://wallet.wafer.page/install.sh | sh</code><button id="copy" type="button">Copy</button></div>
+      <ol class="steps">
+        <li>Open <b>Terminal</b>: press ⌘ Space, type Terminal, press Return.</li>
+        <li>Paste the command and press Return. It downloads about 110 MB, the open-source Electron app engine from its official GitHub releases, checked by fingerprint.</li>
+        <li>Wafer Wallet opens when it's done. Next time, open it from Spotlight or Launchpad.</li>
+      </ol>
+      <p class="alt" id="mac-app">Prefer to read the installer first? <a href="../install.sh" download="install-wafer-wallet-mac.sh">Download it as a file</a>, then run <code class="in">sh ~/Downloads/install-wafer-wallet-mac.sh</code>. Add <code class="in nw">--uninstall</code> to remove the app.</p>
+    </div>
+  </section>
+
+  <section class="card" data-os="windows" id="windows">
+    <div class="side">
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 5.5 10.5 4.5v7H3zM12.5 4.2 21 3v8.5h-8.5zM3 12.5h7.5v7L3 18.5zM12.5 12.5H21V21l-8.5-1.2z"/></svg></div>
+      <h2>Windows</h2>
+      <p>Installed for your Windows account only, with no administrator rights.</p>
+      <ul class="req"><li>Windows 10 or 11, 64-bit</li><li>Intel, AMD or Arm</li><li>6-digit PIN unlock</li></ul>
+    </div>
+    <div class="main">
+      <h3>Install from PowerShell</h3>
+      <p>Paste this into PowerShell. It adds Wafer Wallet to the Start menu and the desktop; running it again updates the app.</p>
+      <div class="cmd ps"><code>irm https://wallet.wafer.page/win.txt | iex</code><button type="button">Copy</button></div>
+      <ol class="steps">
+        <li>Open <b>PowerShell</b>: press Start, type PowerShell, press Enter.</li>
+        <li>Paste the command and press Enter. It downloads about 120 MB, the open-source Electron app engine from its official GitHub releases, checked by fingerprint.</li>
+        <li>Wafer Wallet opens when it's done. To remove it: Settings → Apps → Installed apps.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="card" data-os="android" id="android">
+    <div class="side">
+      <div class="ico"><svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg></div>
+      <h2>Android</h2>
+      <p>PIN or fingerprint unlock, QR scanning and the dApp browser.</p>
+      <ul class="req"><li>Android 9 or newer</li><li class="ww-newkey">Have version 1.5 or older? Write down your wallet's words, uninstall it, then install 1.7 and restore the wallet from its words. 1.7 is signed with a new key, so it can't install over it.</li><li>Version 1.7, 0.1 MB</li></ul>
+    </div>
+    <div class="main">
+      <h3>Download the app</h3>
+      <p>The app is stored on BNB Chain in parts. This page puts it together and checks its fingerprint before saving it.</p>
+      <a class="btn" id="apk" href="#android" data-parts="53" data-tag="02625c5e7d41" data-patch-parts="3" data-patch-tag="8051ca6f46e1" data-sha="8051ca6f46e1ee8872c659d4b0b73b3488df35ca75105cd188daa7d18d9a0a33"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg><span id="apkLabel">Download for Android</span></a>
+      <p class="err" id="apkErr" role="status"></p>
+      <ol class="steps">
+        <li>Tap the button, then open the downloaded file.</li>
+        <li>If asked, allow your browser to install apps, then tap <b>Install</b>.</li>
+        <li>Play Protect may say it doesn't know the app, because it isn't from the Play Store. That's expected.</li>
+      </ol>
+      <h3>Or install from Termux</h3>
+      <p>Paste this into <a href="https://f-droid.org/packages/com.termux/">Termux</a>. It puts the app together from BNB Chain, checks its fingerprint and opens Android's installer; running it again updates the app.</p>
+      <div class="cmd"><code>curl -fsSL https://wallet.wafer.page/android.sh | sh</code><button type="button">Copy</button></div>
+      <p class="alt">The first time, it installs Python in Termux (about 30 MB), and Android asks you to let Termux install apps. <a href="../android.sh" download="install-wafer-wallet-android.sh">Read the installer first</a>.</p>
+    </div>
+  </section>
+  </div>
+
+  <section class="keep" id="keep">
+    <div>
+      <h2>Wafer Keep: an old phone as your hardware wallet</h2>
+      <p>Keep your keys on an Android phone that never goes online. It signs what Wafer Wallet prepares, through encrypted QR codes, and is set up from your Mac in one command.</p>
+    </div>
+    <a href="../keep/">Set up Wafer Keep</a>
+  </section>
+
+  <section class="sec" id="verify">
+    <h2>Check your download</h2>
+    <p>Each file's SHA-256 fingerprint is below. Compare it with <code class="in nw">shasum -a 256 &lt;file&gt;</code> on a Mac or <code class="in nw">Get-FileHash &lt;file&gt;</code> on Windows. The installers and this page check the app files for you.</p>
+    <table class="verify">
+      <thead><tr><th>File</th><th>Size</th><th>SHA-256</th></tr></thead>
+      <tbody>
+        <tr><td>install.sh</td><td>6.2 KB</td><td><small>Mac installer</small><code>4b2df95b466117a1a194fb702ff287e20bb4f5609d920e8a503bc7dcfd753070</code></td></tr>
+        <tr><td>win.txt</td><td>11.4 KB</td><td><small>Windows installer</small><code>3cd12b03b178d2603f2b223de3d2f847eaa2f449bce48305fa41f97b399f93d3</code></td></tr>
+        <tr><td>android.sh</td><td>5.0 KB</td><td><small>Android installer for Termux</small><code>aec605910775d94f2e2a58ac24d67e5422c081b59c4a056bd917bbc35ef15635</code></td></tr>
+        <tr><td>desktop-app.tgz</td><td>24.7 KB</td><td><small>App files both desktop installers use</small><code>96417808833bdab8e4e836a63df01efc517c95733811f12fd21cfea91876d72d</code></td></tr>
+        <tr><td>wafer-wallet.apk</td><td>0.1 MB</td><td><small>Android app, version 1.7</small><code>8051ca6f46e1ee8872c659d4b0b73b3488df35ca75105cd188daa7d18d9a0a33</code><small>Signing certificate</small><code>eaeaeeb407914a670f203ebbc44a9363594006270879ea2ca29cceed1c5dc985</code></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="sec">
+    <h2>How the apps work</h2>
+    <div class="how">
+      <div><h3>The code lives on BNB Chain</h3><p>The app has no wallet code of its own. Each time it starts, it reads Wafer Wallet from BNB Chain under the name <code class="in">wallet.circuit</code>, from several independent nodes.</p></div>
+      <div><h3>Checked before it runs</h3><p>Every file must match its fingerprint on chain, or nothing runs. A new published version is used only after you agree.</p></div>
+      <div><h3>Works without this website</h3><p>The app keeps a checked copy, so it starts offline. If no network node answers, add your own on the start screen or under Network nodes.</p></div>
+    </div>
+    <div class="more">
+      <p>The app keeps its own encrypted wallet on your device: a 6-digit PIN or your fingerprint opens it, and your 12 or 24 words are its only backup. To move a wallet to the app, or to a new device, choose Restore and type its words.</p>
+      <p>The Mac and Windows installers fetch the app files from this website or, if it can't be reached, straight from BNB Chain, and check them against the same fingerprint either way.</p>
+    </div>
+  </section>
+
+  <footer class="foot"><span>Self-custody. Never share your recovery phrase. Wafer will never ask for it.</span><a href="../">wallet.wafer.page</a></footer>
+</div>
+<script src="download-70df7344aff5.js" integrity="sha256-cN9zRK/1P99iq2t3aENpaXwWMhu3TGEXIUdWyskhDEk="></script>
+</body>
+</html>

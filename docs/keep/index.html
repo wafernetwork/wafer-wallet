@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Wafer Keep turns an old Android phone into an offline hardware wallet that signs for Wafer Wallet through encrypted QR codes. Set it up from your Mac in one command.">
+<meta name="theme-color" content="#1a2b5c">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%231a2b5c'/%3E%3Crect x='18' y='28' width='28' height='20' rx='4' fill='%23f0c23c'/%3E%3Cpath d='M24 28v-5a8 8 0 0 1 16 0v5' fill='none' stroke='%23fffefa' stroke-width='5'/%3E%3C/svg%3E">
+<title>Wafer Keep: an old phone as your hardware wallet</title>
+<script src="../guard-bb41bc9bdde0.js" integrity="sha256-u0G8m93grahKnsRDgqqxjTLPHyxTK26BEKcnTgcXjT4="></script>
+<link rel="stylesheet" href="keep-f1318acee828.css" integrity="sha256-8TGKzugomf1MSNm/Vb1HKyqGpjI2xQdt5HzmsT1MRSE=">
+<link rel="stylesheet" href="../mirror.css"><script src="../mirror.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <a class="brand" href="../"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1a2b5c"/><rect x="18" y="28" width="28" height="20" rx="4" fill="#f0c23c"/><path d="M24 28v-5a8 8 0 0 1 16 0v5" fill="none" stroke="#fffefa" stroke-width="5"/></svg>Wafer Keep</a>
+    <nav aria-label="Pages"><a class="hide-sm" href="#setup">Set up</a><a class="hide-sm" href="#questions">Questions</a><a href="../download/">Wafer Wallet apps</a></nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>Your old phone, now a hardware wallet.</h1>
+      <p class="lede">Wafer Keep keeps your keys on an Android phone that never goes online. Wafer Wallet prepares each payment, and Wafer Keep shows you exactly what it does before you sign it with your PIN. The two talk only through encrypted QR codes.</p>
+      <div class="cmd"><code>curl -fsSL https://wallet.wafer.page/download/wafer-seal.sh -o wafer-seal.sh &amp;&amp; bash wafer-seal.sh</code><button type="button">Copy</button></div>
+      <p class="under">Run it in your Mac's Terminal with the phone on USB. <a href="#setup">See the steps</a>, or <button class="dlb" id="keepApk" type="button" data-base="../download/keep/" data-parts="13" data-tag="c9e927a2165f" data-sha="c9e927a2165f02b5bca38296e50ff590dbc14bdf5438fd54d243aa6687ed3c45"><span id="keepLabel">Download Wafer Keep</span></button> to install it yourself.</p>
+      <p class="err" id="keepErr" role="status"></p>
+    </div>
+    <div class="phone" aria-hidden="true">
+      <div class="screen">
+        <div class="st"><span class="lk"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><b>Wafer Keep</b><span class="chip">Offline · Sealed</span></div>
+        <div class="good">This phone is offline.</div>
+        <div class="rows">
+          <div><span>Internet</span><i>blocked by Android</i></div>
+          <div><span>Wi-Fi</span><i>off, locked</i></div>
+          <div><span>Bluetooth</span><i>off, locked</i></div>
+          <div><span>SIM card</span><i>none</i></div>
+          <div><span>Factory reset</span><i>locked</i></div>
+          <div><span>Networks</span><i>EVM · Bitcoin · Solana</i></div>
+        </div>
+        <div class="big">Scan to sign</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Before you start</h2>
+    <p class="intro">Setting up takes about ten minutes. Any spare phone works: it never needs a SIM card or Wi-Fi again.</p>
+    <ul class="need">
+      <li><svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg><b>An old Android phone</b><span>Android 9 or newer, with a locked bootloader. Everything on it will be erased.</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M9 3v5M15 3v5M7 8h10v4a5 5 0 0 1-10 0zM12 17v4"/></svg><b>A USB cable</b><span>To connect the phone to your Mac, once.</span></li>
+      <li><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20M9 16v4M15 16v4"/></svg><b>A Mac</b><span>With Terminal, to run the setup command.</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5z"/><path d="M8 10h8M8 14h8M8 18h5"/></svg><b>Paper and a pen</b><span>For your recovery words, the only backup of the keys.</span></li>
+    </ul>
+  </section>
+
+  <section class="sec" id="setup">
+    <h2>Set up the phone</h2>
+    <p class="intro">Do these in order. After the last step the phone can only run Wafer Keep.</p>
+    <ol class="flow">
+      <li><div><h3>Reset the phone</h3><p>Factory reset it. During setup skip everything: no Wi-Fi, no Google account. Then take out the SIM card.</p></div></li>
+      <li><div><h3>Turn on USB debugging</h3><p>Settings → About phone → tap <b>Build number</b> seven times. Then Settings → Developer options → <b>USB debugging</b> on.</p></div></li>
+      <li><div><h3>Install Android's USB tool on your Mac</h3><p>Once, in Terminal: <code class="in">brew install android-platform-tools</code></p></div></li>
+      <li><div><h3>Connect and run the setup command</h3><p>Plug in the phone and tap <b>Allow</b> on it. Paste the command from the top of this page into Terminal. It downloads Wafer Keep, checks its fingerprint, installs it and seals the phone. Type SEAL when it asks.</p></div></li>
+      <li><div><h3>Create your keys</h3><p>Unplug the phone. In Wafer Keep tap <b>Create new keys</b>, write the 24 words on paper, and choose a PIN.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="sec">
+    <h2>What sealing locks</h2>
+    <p class="intro">Wafer Keep has no internet permission, so Android blocks every connection it might try. Sealing also locks the phone itself, so it can't be put back online by accident or by someone else.</p>
+    <div class="locks">
+      <ul>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Wi-Fi</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Bluetooth</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Mobile data and SIM</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Airplane mode stays on</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Factory reset and safe mode</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>USB file transfer</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Installing other apps</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>USB debugging</li>
+      </ul>
+      <div class="stays">
+        <h3>What still works</h3>
+        <p>The screen, the camera for reading QR codes, and the power button.</p>
+        <p>To use the phone for something else later, open Wafer Keep → Settings → <b>Unseal this phone</b>. It asks for your PIN.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Use it with Wafer Wallet</h2>
+    <p class="intro">Wafer Wallet on your everyday phone or computer works as a full wallet for your Keep: Ethereum-style networks, Bitcoin and Solana. Wafer Keep is the only one that can sign.</p>
+    <div class="duo">
+      <div><h3>Connect, once</h3><ol><li>On Wafer Wallet's opening screen tap <b>Connect Wafer Keep</b> (or, in a wallet you already have: Menu → Wafer Keep).</li><li>In Wafer Keep: <b>Pair with Wafer Wallet</b>, and hold the camera on the wallet's code.</li><li>Scan Wafer Keep's code with the wallet the same way.</li><li>Check both screens show the same 10 digits.</li></ol></div>
+      <div><h3>Use it like any wallet</h3><ol><li>Wafer Wallet then shows your Keep accounts on every network, with balances, history, swaps and dApps. Send as usual.</li><li>In Wafer Keep, tap <b>Scan to sign</b>, check the amount and address, and enter your PIN.</li><li>Scan Wafer Keep's answer with the wallet. It checks the signature and sends.</li></ol></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Why you can trust it</h2>
+    <div class="trust">
+      <div><h3>Encrypted, and quantum-safe</h3><p>Every code between the two apps is encrypted with AES-256. Pairing uses ML-KEM-768 together with P-256, so recordings of the codes stay unreadable even to a future quantum computer.</p></div>
+      <div><h3>Only Wafer Wallet</h3><p>Wafer Keep opens requests only from wallets it is paired with. Wafer Wallet accepts signatures only from its Keep, and checks each one before sending anything.</p></div>
+      <div><h3>Guarded keys</h3><p>The keys are encrypted with your PIN and sealed by the phone's secure hardware. Ten wrong PINs in a row erase them; your paper words bring them back.</p></div>
+      <div><h3>Nothing signed ahead, nothing handed over</h3><p>Wafer Keep never signs an account delegation (EIP-7702), the trick used to drain the Binance hot wallet in October 2026, nor a Solana transaction that never expires. It remembers the last nonce it signed on each network and stops you if a transaction is signed ahead, so it can't be held and sent later. And it refuses what it can't read (contract calls of most apps, new contracts, other programs' Solana instructions) unless you allow those in its settings.</p></div>
+      <div><h3>Your own limits</h3><p>Optional rules, kept on the offline phone and changed only with your PIN: sign only for trusted addresses, and send at most a set amount of each coin per day. A hacked phone or computer running Wafer Wallet can't switch them off.</p></div>
+    </div>
+  </section>
+
+  <section class="sec" id="questions">
+    <h2>Questions</h2>
+    <details><summary>Do I have to seal the phone?</summary><p>No. You can install the app file on any phone with airplane mode on and no SIM card. Wafer Keep still has no internet permission. Sealing adds the locks above, which is safer for a phone kept as a wallet.</p></details>
+    <details><summary>What if I forget the PIN?</summary><p>After ten wrong tries the keys are erased from the phone. Restore them in Wafer Keep with your recovery words and choose a new PIN. Your money is on the blockchain, not on the phone, so nothing is lost while you have the words.</p></details>
+    <details><summary>What if the phone is lost or broken?</summary><p>Set up another phone and restore with your recovery words. Then pair it with Wafer Wallet again. Someone who finds the old phone still needs the PIN, and gets ten tries.</p></details>
+    <details><summary>Which coins and networks does it sign for?</summary><p>Ethereum, BNB Chain and the other Ethereum-style networks Wafer Wallet supports, with their coins and tokens such as USDT and USDC; Bitcoin (native SegWit, bc1q…); and Solana with SOL, USDC and USDT. dApps and swaps in Wafer Wallet are signed on Keep too.</p></details>
+    <details><summary>Does Wafer Shield work with Wafer Keep?</summary><p>Yes, as a dApp inside Wafer Wallet. Moving funds into Shield is signed on Wafer Keep. Your private balance is opened with one signature from Keep and then works on the online device while Shield is open, as with any wallet.</p></details>
+    <details><summary>Can I use it with MetaMask or other wallets?</summary><p>No. Wafer Keep talks only to Wafer Wallet, through its own encrypted codes. That is what lets each side check the other.</p></details>
+  </section>
+
+  <section class="sec" id="verify">
+    <h2>Check the files</h2>
+    <p class="intro">The setup command checks the app against this fingerprint before installing it. To check by hand: <code class="in">shasum -a 256 wafer-keep.apk</code></p>
+    <table class="verify"><tbody>
+      <tr><td>wafer-keep.apk</td><td><small>Version 1.7, 298 KB</small><code>c9e927a2165f02b5bca38296e50ff590dbc14bdf5438fd54d243aa6687ed3c45</code><small>Signing certificate</small><code>aacda08d3434e30f529a2d54b9ab8d35b3b2b1215bbadc209f3fdefa7e3c22cd</code></td></tr>
+      <tr><td>wafer-seal.sh</td><td><small>Setup script, 8.5 KB</small><code>8d6493afcfa49b120faaa8332666cc434a8258b85c37615b59a7b5e289f405bd</code></td></tr>
+    </tbody></table>
+  </section>
+
+  <footer class="foot"><span>Write your recovery words on paper. Never type them into a phone or computer that goes online.</span><a href="../">Wafer Wallet</a></footer>
+</div>
+<script src="../download/download-70df7344aff5.js" integrity="sha256-cN9zRK/1P99iq2t3aENpaXwWMhu3TGEXIUdWyskhDEk="></script>
+</body>
+</html>
