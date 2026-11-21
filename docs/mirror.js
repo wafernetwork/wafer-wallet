@@ -1,4 +1,4 @@
-// Unofficial mirror helper: points the install commands at THIS site instead of wallet.wafer.page,
+// Backup-site helper: points the install commands at THIS site instead of wallet.wafer.page,
 // and shows a notice. It changes only on-page text; it does not touch any app file.
 (function () {
   "use strict";
@@ -19,7 +19,7 @@
     var b = document.createElement("div");
     b.className = "mirror-note";
     b.setAttribute("role", "note");
-    b.textContent = "Unofficial mirror of the Wafer Wallet site (v6), not run by Wafer. The install commands on this page use this mirror. Before installing, check the SHA-256 fingerprints against the on-chain manifest and the signed release.txt.";
+    b.textContent = "Wafer Network's GitHub copy of the Wafer Wallet site (v6), for when wallet.wafer.page is unavailable. The install commands on this page use this copy. Before installing, check the SHA-256 fingerprints against the on-chain manifest and the signed release.txt.";
     document.body.insertBefore(b, document.body.firstChild);
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fix); else fix();

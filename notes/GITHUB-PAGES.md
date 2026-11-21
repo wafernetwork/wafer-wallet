@@ -1,4 +1,4 @@
-# Host the mirror on GitHub Pages
+# Host the site on GitHub Pages
 
 The folder `docs/` is a ready-to-publish copy of the on-chain Wafer Wallet site (v6): the landing page, download page, Keep page, the app parts and the install scripts. Once published, the install commands work from your own address instead of `wallet.wafer.page`.
 
@@ -11,7 +11,7 @@ The folder `docs/` is a ready-to-publish copy of the on-chain Wafer Wallet site 
 **Free accounts need a public repo for Pages.** Private-repo Pages needs a paid GitHub plan. Make the repo public only after you're comfortable with the licence question in `NOTICE.md`.
 
 ## What works
-The pages rewrite their own install commands to your address, and a yellow notice at the top says it is an unofficial mirror. Open `https://YOUR-USERNAME.github.io/REPO-NAME/download/` and copy the commands from there. They look like this (replace `ROOT` with your site address, no trailing slash):
+The pages rewrite their own install commands to your address, and a yellow notice at the top says it is the GitHub copy of the site and to check the fingerprints. Open `https://YOUR-USERNAME.github.io/REPO-NAME/download/` and copy the commands from there. They look like this (replace `ROOT` with your site address, no trailing slash):
 
 | Task | Command |
 |---|---|
@@ -41,6 +41,6 @@ Served `docs/` under a sub-path like GitHub Pages does, then:
 
 ## Limits and safety
 - GitHub Pages is another single host. Keep the offline copies and the verification steps from the README.
-- People who run `curl … | sh` from your mirror are trusting your mirror. Keep the notice, never edit the scripts or APK parts, and point people to the fingerprints and the on-chain manifest.
+- People who run `curl … | sh` from this site are trusting this site. Keep the notice, never edit the scripts or APK parts, and point people to the fingerprints and the on-chain manifest.
 - Don't let git change line endings: `.gitattributes` turns conversion off. If you upload with the GitHub website you're fine.
 - GitHub Pages has size and bandwidth limits (about 1 GB site size, 100 GB/month). This site is a few MB.

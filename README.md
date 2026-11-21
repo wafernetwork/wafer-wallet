@@ -1,10 +1,13 @@
-# Wafer Wallet & Wafer Keep: unofficial backup mirror (v6)
+# Wafer Wallet & Wafer Keep: GitHub backup (v6)
 
-**This is an unofficial personal backup, not the official source.** The official app is published on BNB Chain by the Wafer team (name `wallet.circuit`).
-Do **not** trust this repo on its own. Always check the fingerprints below against the on-chain manifest and the signed `release/release.txt`.
+**Wafer Network's GitHub copy of Wafer Wallet and Wafer Keep (v6).** The apps themselves are published on BNB Chain (name `wallet.circuit`). This repo keeps the files, and a website built from them, so the apps can still be downloaded and checked if `wallet.wafer.page` is unavailable.
+Always check the fingerprints below against the on-chain manifest and the signed `release/release.txt` before installing.
+
+- Repository: https://github.com/wafernetwork/wafer-wallet
+- Website (GitHub Pages): https://wafernetwork.github.io/wafer-wallet/
 
 ## Why this exists
-Wafer Wallet's downloads were served from `wallet.wafer.page`. If that domain stops working, this repo keeps a copy of the files and a way to rebuild and check them without it.
+Wafer Wallet's downloads are served from `wallet.wafer.page`. If that domain stops working, this repo keeps a copy of the files and a way to rebuild and check them without it.
 
 ## What's here
 | Path | What it is |
@@ -20,8 +23,23 @@ Wafer Wallet's downloads were served from `wallet.wafer.page`. If that domain st
 | `rebuild.py` | Rebuilds and verifies both APKs from the zip |
 | `SHA256SUMS` | Fingerprints of the files in this repo |
 
-## Website mirror (GitHub Pages)
+## Website backup (GitHub Pages)
 Publish the `docs/` folder with GitHub Pages (Settings → Pages → Deploy from a branch → `main` → `/docs`) and the install and sealing commands work from your own address, like on wallet.wafer.page. Steps, commands and test results: [notes/GITHUB-PAGES.md](notes/GITHUB-PAGES.md).
+
+Commands on this site (`ROOT` = `https://wafernetwork.github.io/wafer-wallet`):
+```bash
+# Android (Termux)
+curl -fsSL ROOT/android.sh | WW_SITE=ROOT sh
+# Mac
+curl -fsSL ROOT/install.sh | WW_FROM=ROOT sh
+# Wafer Keep (Mac, phone on USB)
+curl -fsSL ROOT/download/wafer-seal.sh -o wafer-seal.sh && WAFER_KEEP_URL=ROOT/download/keep bash wafer-seal.sh
+```
+```powershell
+# Windows (PowerShell)
+$env:WW_FROM='ROOT'; irm ROOT/win.txt | iex
+```
+(Replace `ROOT` with the address above. The pages themselves show the commands ready to copy.)
 
 ## About the apps
 - **Wafer Wallet:** free self-custody wallet for Android, Windows and Mac (Bitcoin, Ethereum, BNB Chain, Solana, Base, 25+ more networks, private payments with Wafer Shield, swaps and dApps). Its code is stored on BNB Chain as `wallet.circuit` and checked before every run. Details: [notes/ABOUT-WALLET.md](notes/ABOUT-WALLET.md). Official site: https://wallet.wafer.page/
@@ -64,5 +82,5 @@ For a stronger check, compare the manifest ID and file hashes in `release/wafer-
 - Your 12/24 recovery words are your real backup. Keep them on paper, offline.
 - Android needs "install unknown apps" enabled for the installer you use.
 
-## Licence / ownership
-I do not own Wafer Wallet or Wafer Keep. Wafer describes the project as open source. The files I checked say the desktop app is **MIT**, the bundled QR library is **Apache-2.0** and the fonts are **SIL OFL**. See [`NOTICE.md`](NOTICE.md). The Android APKs do not state a licence, so confirm the exact terms with Wafer and add their official `LICENSE` file if they give you one.
+## Licence
+Wafer Wallet and Wafer Keep, and the installers and scripts here, are open source under the **MIT licence** (see [`LICENSE`](LICENSE)). Third-party parts keep their own licences: the bundled QR library jsQR is **Apache-2.0** and the fonts are **SIL OFL**. Details in [`NOTICE.md`](NOTICE.md).
