@@ -1,0 +1,181 @@
+# Wafer Wallet for Windows: installer.
+#   Install or update (in PowerShell):  irm https://wallet.wafer.page/win.txt | iex
+#   Uninstall: Settings > Apps > Installed apps > Wafer Wallet  (your wallet data stays; see below)
+#
+# Builds the Wafer Wallet app on your own PC, for your Windows account only (no administrator rights).
+#  - The app window is Electron 44.7.0 (the open-source engine many desktop apps use), downloaded
+#    from Electron's official GitHub releases and checked against its published SHA-256.
+#  - Inside it go Wafer Wallet's own app files (desktop-app.tgz, 25276 bytes, the same for Mac
+#    and Windows): a loader that reads the wallet from BNB Chain ("wallet.circuit") and checks every
+#    byte against its on-chain fingerprint, and a small bridge for Windows Hello, saving files,
+#    printing and your own nodes. They are fetched from wallet.wafer.page or, if that can't be
+#    reached, straight from BNB Chain, and checked against the SHA-256 below either way.
+#  - Installed in %LOCALAPPDATA%\Programs\Wafer Wallet, with Start menu and desktop shortcuts.
+# No background service, nothing runs at startup.
+# The wallet's data is kept in %APPDATA%\Wafer Wallet (delete that folder to remove it too; first
+# make sure you have your recovery kit and password, or your 12 words).
+& {
+$ErrorActionPreference = 'Stop'
+$ProgressPreference = 'SilentlyContinue'
+$Version = '1.7.0'
+$AppSha = '96417808833bdab8e4e836a63df01efc517c95733811f12fd21cfea91876d72d'
+$AppBlob = '0x73e541dc73010d6024afbbe44d7b1cd9e8df58291dc526c303f712440979267a'
+$Store = '0x946f41c84661C066d22F9d106C1a6CCF050FBc2b'
+$From = if ($env:WW_FROM) { $env:WW_FROM } else { 'https://wallet.wafer.page' }
+$EV = '44.7.0'
+$Sums = @{ x64 = 'eee30dc8fa1f5ea95490e59f44e46ea68dd24c6e93d22facf70fe5c2d4c2665c'; arm64 = 'ee2621a4513f92a952273d5363e153db6f0e4dd183d89f2c0f740faa13623316' }
+
+function Say($t) { Write-Host $t }
+function Stop-Install($t) { throw [System.Exception]::new($t) }
+function Sha256Of([byte[]]$b) { $h = [System.Security.Cryptography.SHA256]::Create(); try { -join ($h.ComputeHash($b) | ForEach-Object { $_.ToString('x2') }) } finally { $h.Dispose() } }
+
+# the app's files: from the website, else from BNB Chain (CircuitStore.read), checked either way
+function Get-AppFiles {
+  try {
+    $r = Invoke-WebRequest -UseBasicParsing -Uri "$From/download/desktop-app.tgz" -TimeoutSec 60
+    $b = $r.RawContentStream.ToArray()
+    if ((Sha256Of $b) -eq $AppSha) { return ,$b }
+  } catch { }
+  foreach ($rpc in 'https://bsc-dataseed.bnbchain.org', 'https://bsc-rpc.publicnode.com', 'https://1rpc.io/bnb') {
+    try {
+      $body = '{"jsonrpc":"2.0","id":1,"method":"eth_call","params":[{"to":"' + $Store + '","data":"0x61da1439' + $AppBlob.Substring(2) + '"},"latest"]}'
+      $res = Invoke-RestMethod -Method Post -Uri $rpc -ContentType 'application/json' -Body $body -TimeoutSec 60
+      $hex = [string]$res.result
+      if ($hex.Length -le 130) { continue }
+      $len = [Convert]::ToInt32($hex.Substring(2 + 64, 64), 16)
+      $b = New-Object byte[] $len
+      for ($i = 0; $i -lt $len; $i++) { $b[$i] = [Convert]::ToByte($hex.Substring(130 + 2 * $i, 2), 16) }
+      if ((Sha256Of $b) -eq $AppSha) { return ,$b }
+    } catch { }
+  }
+  return $null
+}
+
+# desktop-app.tgz holds plain files only (a gzip'd tar); unpack it without needing tar.exe
+function Expand-Tgz([byte[]]$gz, [string]$dest) {
+  $in = New-Object System.IO.MemoryStream(,$gz)
+  $z = New-Object System.IO.Compression.GZipStream($in, [System.IO.Compression.CompressionMode]::Decompress)
+  $ms = New-Object System.IO.MemoryStream
+  $z.CopyTo($ms); $z.Dispose()
+  $t = $ms.ToArray(); $o = 0
+  while ($o + 512 -le $t.Length) {
+    $name = [System.Text.Encoding]::ASCII.GetString($t, $o, 100).Trim([char]0).Trim()
+    if (-not $name) { break }
+    $size = [Convert]::ToInt64(([System.Text.Encoding]::ASCII.GetString($t, $o + 124, 12).Trim([char]0).Trim()), 8)
+    $type = [char]$t[$o + 156]
+    $name = $name -replace '^\./', ''
+    if (($type -eq '0' -or $type -eq [char]0) -and $name -and $name -notmatch '[\\/:]|\.\.') {
+      $f = New-Object byte[] $size
+      [Array]::Copy($t, $o + 512, $f, 0, $size)
+      [System.IO.File]::WriteAllBytes((Join-Path $dest $name), $f)
+    }
+    $o += 512 + [int64]([Math]::Ceiling($size / 512.0) * 512)
+  }
+}
+
+# the app's icon for Windows: the 256 px picture inside the Mac icon (AppIcon.icns), as an .ico
+function Write-Ico([string]$icns, [string]$ico) {
+  $b = [System.IO.File]::ReadAllBytes($icns); $o = 8; $png = $null
+  while ($o + 8 -le $b.Length) {
+    $type = [System.Text.Encoding]::ASCII.GetString($b, $o, 4)
+    $n = ([int]$b[$o + 4] -shl 24) -bor ([int]$b[$o + 5] -shl 16) -bor ([int]$b[$o + 6] -shl 8) -bor [int]$b[$o + 7]
+    if ($n -lt 8) { break }
+    if ($type -eq 'ic08') { $png = New-Object byte[] ($n - 8); [Array]::Copy($b, $o + 8, $png, 0, $n - 8) }
+    $o += $n
+  }
+  if (-not $png) { return }
+  $s = New-Object System.IO.MemoryStream; $w = New-Object System.IO.BinaryWriter($s)
+  $w.Write([uint16]0); $w.Write([uint16]1); $w.Write([uint16]1)
+  $w.Write([byte]0); $w.Write([byte]0); $w.Write([byte]0); $w.Write([byte]0)
+  $w.Write([uint16]1); $w.Write([uint16]32); $w.Write([uint32]$png.Length); $w.Write([uint32]22)
+  $w.Write($png); $w.Flush()
+  [System.IO.File]::WriteAllBytes($ico, $s.ToArray())
+}
+
+try {
+  if ([Environment]::OSVersion.Platform -ne 'Win32NT') { Stop-Install 'This installer is for Windows. On a Mac, see https://wallet.wafer.page/download/' }
+  if ([Environment]::OSVersion.Version.Major -lt 10) { Stop-Install 'Wafer Wallet needs Windows 10 or 11.' }
+  $cpu = if ($env:PROCESSOR_ARCHITEW6432) { $env:PROCESSOR_ARCHITEW6432 } else { $env:PROCESSOR_ARCHITECTURE }
+  $arch = switch ($cpu) { 'AMD64' { 'x64' } 'ARM64' { 'arm64' } default { $null } }
+  if (-not $arch) { Stop-Install "This PC's processor ($cpu) isn't supported: Wafer Wallet needs 64-bit Windows." }
+  [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
+
+  $Dest = Join-Path $env:LOCALAPPDATA 'Programs\Wafer Wallet'
+  # built next to its final place (same drive), then moved in
+  New-Item -ItemType Directory -Path (Split-Path $Dest) -Force | Out-Null
+  $W = Join-Path (Split-Path $Dest) ('.wafer-wallet-' + [Guid]::NewGuid().ToString('N').Substring(0, 8))
+  New-Item -ItemType Directory -Path $W | Out-Null
+  try {
+    Say "1/4  Downloading the app window (Electron $EV for $arch, about 120 MB)..."
+    $zip = Join-Path $W 'e.zip'
+    $url = "https://github.com/electron/electron/releases/download/v$EV/electron-v$EV-win32-$arch.zip"
+    $curl = Join-Path $env:SystemRoot 'System32\curl.exe'
+    if (Test-Path $curl) { & $curl -fL --progress-bar -o $zip $url; if ($LASTEXITCODE -ne 0) { Stop-Install "The download from GitHub failed. Check your connection and try again." } }
+    else { Invoke-WebRequest -UseBasicParsing -Uri $url -OutFile $zip }
+
+    Say '2/4  Checking the download, and getting Wafer Wallet''s own files...'
+    if ((Get-FileHash -Algorithm SHA256 -Path $zip).Hash.ToLower() -ne $Sums[$arch]) { Stop-Install "The download doesn't match Electron's published fingerprint, so nothing was installed." }
+    $app = Get-AppFiles
+    if (-not $app) { Stop-Install "Wafer Wallet's files couldn't be fetched (or didn't match their fingerprint), so nothing was installed. Check your connection and try again." }
+
+    Say '3/4  Building Wafer Wallet...'
+    $X = Join-Path $W 'x'
+    New-Item -ItemType Directory -Path $X | Out-Null
+    $tar = Join-Path $env:SystemRoot 'System32\tar.exe'
+    if (Test-Path $tar) { & $tar -xf $zip -C $X; if ($LASTEXITCODE -ne 0) { Stop-Install 'The app window could not be unpacked.' } }
+    else { Expand-Archive -Path $zip -DestinationPath $X -Force }
+    Remove-Item -Force (Join-Path $X 'resources\default_app.asar') -ErrorAction SilentlyContinue
+    $R = Join-Path $X 'resources\app'
+    New-Item -ItemType Directory -Path $R | Out-Null
+    Expand-Tgz $app $R
+    if (-not (Test-Path (Join-Path $R 'main.js'))) { Stop-Install "Wafer Wallet's files couldn't be unpacked, so nothing was installed." }
+    Write-Ico (Join-Path $R 'AppIcon.icns') (Join-Path $R 'icon.ico')
+    Rename-Item -Path (Join-Path $X 'electron.exe') -NewName 'Wafer Wallet.exe'
+    $un = @'
+# Wafer Wallet: uninstall (your wallet's data stays in %APPDATA%\Wafer Wallet)
+$ErrorActionPreference = 'SilentlyContinue'
+Get-Process -Name 'Wafer Wallet' | Stop-Process -Force; Start-Sleep -Seconds 2
+$dir = Join-Path $env:LOCALAPPDATA 'Programs\Wafer Wallet'
+Remove-Item -Force (Join-Path ([Environment]::GetFolderPath('Programs')) 'Wafer Wallet.lnk'), (Join-Path ([Environment]::GetFolderPath('Desktop')) 'Wafer Wallet.lnk')
+Remove-Item -Recurse -Force $dir
+# the entry in Settings > Apps goes only once the files are gone, so a failed removal can be tried again
+if (-not (Test-Path $dir)) { Remove-Item -Recurse -Force 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\WaferWallet' }
+'@
+    Set-Content -Path (Join-Path $X 'uninstall.ps1') -Value $un -Encoding ASCII
+
+    Say "4/4  Putting it in $Dest..."
+    Get-Process -Name 'Wafer Wallet' -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+    for ($i = 0; $i -lt 20 -and (Get-Process -Name 'Wafer Wallet' -ErrorAction SilentlyContinue); $i++) { Start-Sleep -Milliseconds 500 }
+    # the old version is moved aside first and deleted only once the new one is in place
+    $Old = $null
+    if (Test-Path $Dest) {
+      $Old = $Dest + '.old-' + [Guid]::NewGuid().ToString('N').Substring(0, 6)
+      try { Rename-Item -Path $Dest -NewName (Split-Path $Old -Leaf) } catch { Stop-Install "Wafer Wallet is still open (or a file of it is in use). Close it and run the command again." }
+    }
+    try { Move-Item -Path $X -Destination $Dest } catch { if ($Old) { Rename-Item -Path $Old -NewName (Split-Path $Dest -Leaf) -ErrorAction SilentlyContinue }; throw }
+    if ($Old) { for ($i = 0; $i -lt 5 -and (Test-Path $Old); $i++) { Remove-Item -Recurse -Force $Old -ErrorAction SilentlyContinue; if (Test-Path $Old) { Start-Sleep -Seconds 1 } } }
+    $exe = Join-Path $Dest 'Wafer Wallet.exe'; $ico = Join-Path $Dest 'resources\app\icon.ico'
+    $sh = New-Object -ComObject WScript.Shell
+    foreach ($dir in [Environment]::GetFolderPath('Programs'), [Environment]::GetFolderPath('Desktop')) {
+      $l = $sh.CreateShortcut((Join-Path $dir 'Wafer Wallet.lnk'))
+      $l.TargetPath = $exe; $l.WorkingDirectory = $Dest; $l.Description = 'Wafer Wallet'
+      if (Test-Path $ico) { $l.IconLocation = "$ico,0" }
+      $l.Save()
+    }
+    $key = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\WaferWallet'
+    New-Item -Path $key -Force | Out-Null
+    $ps = Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe'
+    $vals = @{ DisplayName = 'Wafer Wallet'; DisplayVersion = $Version; Publisher = 'Wafer Network'; InstallLocation = $Dest; DisplayIcon = $ico
+               UninstallString = "`"$ps`" -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File `"$Dest\uninstall.ps1`""; URLInfoAbout = 'https://wallet.wafer.page/' }
+    foreach ($k in $vals.Keys) { New-ItemProperty -Path $key -Name $k -Value $vals[$k] -PropertyType String -Force | Out-Null }
+    foreach ($k in 'NoModify', 'NoRepair') { New-ItemProperty -Path $key -Name $k -Value 1 -PropertyType DWord -Force | Out-Null }
+    Say "Done. Wafer Wallet $Version is installed. Opening it..."
+    Start-Process -FilePath $exe
+  } finally {
+    Remove-Item -Recurse -Force $W -ErrorAction SilentlyContinue
+  }
+} catch {
+  Write-Host ''
+  Write-Host $_.Exception.Message -ForegroundColor Red
+}
+}

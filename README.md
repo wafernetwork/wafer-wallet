@@ -14,14 +14,19 @@ Wafer Wallet's downloads were served from `wallet.wafer.page`. If that domain st
 | `apk/wafer-keep.apk` | Android Wafer Keep (offline signer), rebuilt from the on-chain parts |
 | `release/release.txt`, `release.sig` | The release's SHA-256 list and its signature (ECDSA P-256) |
 | `release/wafer-manifest.json` | The on-chain file manifest |
-| `docs/` | Wallet and Keep details, and install steps without the website |
+| `docs/` | **The website** (publish with GitHub Pages): landing, download and Keep pages, app parts, install scripts |
+| `notes/` | Wallet and Keep details, install steps without the website, GitHub Pages guide |
+| `SITE-SHA256SUMS` | Fingerprints of every file in `docs/` |
 | `rebuild.py` | Rebuilds and verifies both APKs from the zip |
 | `SHA256SUMS` | Fingerprints of the files in this repo |
 
+## Website mirror (GitHub Pages)
+Publish the `docs/` folder with GitHub Pages (Settings → Pages → Deploy from a branch → `main` → `/docs`) and the install and sealing commands work from your own address, like on wallet.wafer.page. Steps, commands and test results: [notes/GITHUB-PAGES.md](notes/GITHUB-PAGES.md).
+
 ## About the apps
-- **Wafer Wallet:** free self-custody wallet for Android, Windows and Mac (Bitcoin, Ethereum, BNB Chain, Solana, Base, 25+ more networks, private payments with Wafer Shield, swaps and dApps). Its code is stored on BNB Chain as `wallet.circuit` and checked before every run. Details: [docs/ABOUT-WALLET.md](docs/ABOUT-WALLET.md). Official site: https://wallet.wafer.page/
-- **Wafer Keep:** turns an old Android phone into an offline hardware wallet that signs through encrypted QR codes. Details and setup: [docs/ABOUT-KEEP.md](docs/ABOUT-KEEP.md). Official page: https://wallet.wafer.page/#keep
-- **Domain gone?** Follow [docs/INSTALL-WITHOUT-DOMAIN.md](docs/INSTALL-WITHOUT-DOMAIN.md).
+- **Wafer Wallet:** free self-custody wallet for Android, Windows and Mac (Bitcoin, Ethereum, BNB Chain, Solana, Base, 25+ more networks, private payments with Wafer Shield, swaps and dApps). Its code is stored on BNB Chain as `wallet.circuit` and checked before every run. Details: [notes/ABOUT-WALLET.md](notes/ABOUT-WALLET.md). Official site: https://wallet.wafer.page/
+- **Wafer Keep:** turns an old Android phone into an offline hardware wallet that signs through encrypted QR codes. Details and setup: [notes/ABOUT-KEEP.md](notes/ABOUT-KEEP.md). Official page: https://wallet.wafer.page/#keep
+- **Domain gone?** Follow [notes/INSTALL-WITHOUT-DOMAIN.md](notes/INSTALL-WITHOUT-DOMAIN.md).
 
 ## Fingerprints (SHA-256), version 1.7
 ```
