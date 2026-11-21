@@ -8,10 +8,10 @@ The folder `docs/` is a ready-to-publish copy of the on-chain Wafer Wallet site 
 3. Under **Build and deployment**: Source = **Deploy from a branch**, Branch = **main**, Folder = **/docs**. Click **Save**.
 4. Wait 1-2 minutes. Your site is at `https://YOUR-USERNAME.github.io/REPO-NAME/`.
 
-**Free accounts need a public repo for Pages.** Private-repo Pages needs a paid GitHub plan. Make the repo public only after you're comfortable with the licence question in `NOTICE.md`.
+**Free accounts need a public repo for Pages.** Private-repo Pages needs a paid GitHub plan. The repo is MIT-licensed (see `LICENSE`), so a public repo is fine.
 
 ## What works
-The pages rewrite their own install commands to your address, and a yellow notice at the top says it is the GitHub copy of the site and to check the fingerprints. Open `https://YOUR-USERNAME.github.io/REPO-NAME/download/` and copy the commands from there. They look like this (replace `ROOT` with your site address, no trailing slash):
+The pages rewrite their own install commands to your address. Open `https://YOUR-USERNAME.github.io/REPO-NAME/download/` and copy the commands from there. They look like this (replace `ROOT` with your site address, no trailing slash):
 
 | Task | Command |
 |---|---|
@@ -25,7 +25,7 @@ The "Download for Android" and "Download Wafer Keep" buttons also work: they reb
 ## What I changed in the site copy
 Only these, so the rest is byte-identical to the export:
 - `index.html`, `download/index.html`, `keep/index.html`: one line added to load `mirror.css` and `mirror.js`.
-- Added `mirror.js` (rewrites the command text and shows the notice), `mirror.css`, and `.nojekyll` (so GitHub serves every file as-is).
+- Added `mirror.js` (rewrites the command text), `mirror.css` (unused now, harmless), and `.nojekyll` (so GitHub serves every file as-is).
 - Left out `_headers` (server rules for Wafer's gateway; GitHub Pages ignores them), `well-known/assetlinks.json` (for the original domain only) and the manifest copy (it is in `release/`).
 The original, untouched export is in `source/wallet_circuit-v6.zip`.
 `SITE-SHA256SUMS` lists the fingerprint of every file in `docs/`.
@@ -41,6 +41,6 @@ Served `docs/` under a sub-path like GitHub Pages does, then:
 
 ## Limits and safety
 - GitHub Pages is another single host. Keep the offline copies and the verification steps from the README.
-- People who run `curl … | sh` from this site are trusting this site. Keep the notice, never edit the scripts or APK parts, and point people to the fingerprints and the on-chain manifest.
+- People who run `curl … | sh` from this site are trusting this site. Never edit the scripts or APK parts, and point people to the fingerprints and the on-chain manifest.
 - Don't let git change line endings: `.gitattributes` turns conversion off. If you upload with the GitHub website you're fine.
 - GitHub Pages has size and bandwidth limits (about 1 GB site size, 100 GB/month). This site is a few MB.
