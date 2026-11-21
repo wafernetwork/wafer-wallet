@@ -1,0 +1,775 @@
+{
+  "manifest": "0xee6d50e52020adfc9f2a307f042e5253eb19aa0e29c0be2a6441203fcb4e82f4",
+  "version": 1,
+  "entry": "index.html",
+  "files": [
+    {
+      "path": "android.sh",
+      "hash": "0x635645d1d8553e6afddffd07471e798af4f7304c970245f454d109ee23ea68da",
+      "size": 5129,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "win.txt",
+      "hash": "0xd1271dfe7d00e596dc8ea98d5f092150c449e4e3c0cfb188954d161ebf7fcf77",
+      "size": 11664,
+      "mime": "text/plain"
+    },
+    {
+      "path": "index.html",
+      "hash": "0x133a9e80d30f737554a7eee01b4d7235b96847c8cbaf5caaeb38b7e4a745489a",
+      "size": 23709,
+      "mime": "text/html"
+    },
+    {
+      "path": "lp-bdba53d1ce67.css",
+      "hash": "0xed71457dfc593a68a22f9fe79e84b25717dd28bd9b87e7ccc5f1223d701cba84",
+      "size": 20429,
+      "mime": "text/css"
+    },
+    {
+      "path": "install.sh",
+      "hash": "0x99b3186b418a664608ae20f0c2bcc7361ac2f47a57b2705191e1cd0bdab6c1b6",
+      "size": 6333,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "wallet-502b32c4a22c.css",
+      "hash": "0x8c315b7dad1fa2810301d865ce9bc02feec2992fade46072c1f9f30c42af2f9e",
+      "size": 21990,
+      "mime": "text/css"
+    },
+    {
+      "path": "_headers",
+      "hash": "0x47604c9c9fb9c617bde65e062341123747c1e3c774acf1bce97c410a03efd8ac",
+      "size": 4372,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "guard-bb41bc9bdde0.js",
+      "hash": "0xc5987cfd38a785d412cde063ed50ba809c81a8e2c8e5fcf0aaf073327380dc7b",
+      "size": 1189,
+      "mime": "text/javascript"
+    },
+    {
+      "path": "release.txt",
+      "hash": "0x09374613315a6374c363387492fb4f64558892447f020f7d6bd52913a204b0f1",
+      "size": 12349,
+      "mime": "text/plain"
+    },
+    {
+      "path": "boot-e0a4d19d026e.js",
+      "hash": "0x7bf3cc0fd14c54e4e377c2de0055b2b4a7393aba5fc53603bc69ccb49c826ebb",
+      "size": 4891,
+      "mime": "text/javascript"
+    },
+    {
+      "path": "site-faa9d46f07d6.css",
+      "hash": "0x1a80e3b02d508c69202cb915e2ad256c9b512bb507c4fc3f939011c3b44384ec",
+      "size": 7581,
+      "mime": "text/css"
+    },
+    {
+      "path": "release.sig",
+      "hash": "0xce4d512a4f75efdca20e20c82b18e7f55bbe9b3a0cc6e46de8ea99f3afadc377",
+      "size": 96,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "fonts/archivo-latin-600-normal.woff2",
+      "hash": "0x03fbe96810d07d292d28cc9f5546a08173cf2b46a539c343cd829ddde8f455e6",
+      "size": 13820,
+      "mime": "font/woff2"
+    },
+    {
+      "path": "fonts/archivo-latin-700-normal.woff2",
+      "hash": "0x25b60db147cdd9d92f447ac151697d0f0f1a703acb6c929a0ea8ffb365607935",
+      "size": 14508,
+      "mime": "font/woff2"
+    },
+    {
+      "path": "fonts/OFL-IBM-Plex.txt",
+      "hash": "0x3c37a8140a71d26a27d88e0e82cb3dfb532f7163fff065ec598282a20d97f0b9",
+      "size": 4429,
+      "mime": "text/plain"
+    },
+    {
+      "path": "fonts/OFL-Archivo.txt",
+      "hash": "0x813739c811118250fe2e86fcea3fc2e88957f556fa3a3847f6feecfbf357182b",
+      "size": 4503,
+      "mime": "text/plain"
+    },
+    {
+      "path": "fonts/ibm-plex-mono-latin-500-normal.woff2",
+      "hash": "0xee1d88a8a0add22551d731aaecee62789e3fd553b0a26c29261525fe3d6d3933",
+      "size": 14888,
+      "mime": "font/woff2"
+    },
+    {
+      "path": "fonts/ibm-plex-sans-latin-600-normal.woff2",
+      "hash": "0xe85be3040546a8a35f801ae6a32a7577b2b9239d68a982a8e7f579ecbe8c8f4d",
+      "size": 24252,
+      "mime": "font/woff2"
+    },
+    {
+      "path": "fonts/ibm-plex-mono-latin-400-normal.woff2",
+      "hash": "0x9e128a4f1d8c32c544582616bdbebb088a69e753334c0bafad7c531cd01c7f27",
+      "size": 14708,
+      "mime": "font/woff2"
+    },
+    {
+      "path": "fonts/ibm-plex-sans-latin-500-normal.woff2",
+      "hash": "0xcd2f2358a9ddda485530d2c0f68ab5fb9a58a1c590969c6b7a3b96289c5e9369",
+      "size": 24184,
+      "mime": "font/woff2"
+    },
+    {
+      "path": "fonts/ibm-plex-sans-latin-400-normal.woff2",
+      "hash": "0x75fb0711abf27ff731c206f6ac2fad7a9ef4c61e66f4e82fbc537449b4eea3a4",
+      "size": 22588,
+      "mime": "font/woff2"
+    },
+    {
+      "path": "parts/8b87eabd6d8d-01.bin",
+      "hash": "0x9d55fc3dd01c4813e848f25d70a74392b7b5bb55b0087781a1f2f16565809a95",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "parts/8b87eabd6d8d-00.bin",
+      "hash": "0xc02d8b9d263ef6bad7d315e5387fb45ae9ee5fb7160d25a8d1aef255c5ec82e3",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "parts/8b87eabd6d8d-02.bin",
+      "hash": "0x2ada5a35c67c16734b0e8c760eab65c99f323ac233777ce02a36d40b0477fea6",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "parts/8b87eabd6d8d-03.bin",
+      "hash": "0x4de4e2c3af3f3eedc66716a508862d2553f743dc3120ac7a43a856e55499efcc",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "parts/8b87eabd6d8d-04.bin",
+      "hash": "0x5a0395ff1d49bf1974f7361f56fa804615d02ed3033dcfa74a9bcd1f1d98a911",
+      "size": 1241,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "parts/49dcc0daceb0-02.bin",
+      "hash": "0x718e17d59fb12dc47b4f08f09cc4e77d510c345d8ff22d018f4fd8f03c89f110",
+      "size": 22785,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "parts/49dcc0daceb0-00.bin",
+      "hash": "0x3449761b206f67b3d9091441b928e2bf152cc5538108a5587f5039b0704a3267",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "parts/49dcc0daceb0-01.bin",
+      "hash": "0x4589273785201a5129b94fc87f64bfd5b9ee69c2c96ffdcc7288078efc4700a4",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "parts/1f5660ca2ef3-00.bin",
+      "hash": "0xf6722153d161873e370db189bceb87c50096a06b1406773189862c86b433a3fd",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "parts/1f5660ca2ef3-01.bin",
+      "hash": "0x1d60a001d848feea58fe1b47c35fd0b0af0f2d523d251a6d662650ea2520edcb",
+      "size": 416,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/download-34ee359bbb1e.css",
+      "hash": "0x1066ee8c9f4c6c1b26bc55f5690df0046de59ef4628bb449564cb064de2bd415",
+      "size": 8206,
+      "mime": "text/css"
+    },
+    {
+      "path": "download/index.html",
+      "hash": "0x6957952ee4a56a50d45e4a544e898e5ee9adb57dc29aa9ba225f6c5b759d6b18",
+      "size": 11327,
+      "mime": "text/html"
+    },
+    {
+      "path": "download/desktop-app.tgz",
+      "hash": "0x73e541dc73010d6024afbbe44d7b1cd9e8df58291dc526c303f712440979267a",
+      "size": 25276,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/wafer-seal.sh",
+      "hash": "0xb9089f35816586deed7a2e34476d6eec8be0e29ba59790d8f921d952c14fb6dc",
+      "size": 8684,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/download-70df7344aff5.js",
+      "hash": "0x7da6c827c2002f5599f004f083a75a5f8b2ab943601f7e10a50430014474a1de",
+      "size": 9016,
+      "mime": "text/javascript"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-46.bin",
+      "hash": "0x20f1add5054e4e231c4ce47812bc03efcf118068197d36db996bb8faac3bafd5",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-52.bin",
+      "hash": "0x1b7fc47d5c8529db882b35335994a48925bbb7b56f1d0a077648fc5450658c20",
+      "size": 19956,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-47.bin",
+      "hash": "0x3f31116ed55b4977cbd2a4c91668f23aef868d10a91c14e83d17d634a441c8ab",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-51.bin",
+      "hash": "0x9f69e99fa8469dbf86d37edabe516c6f80cfe061597bf3740216aca4b3cec3eb",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-45.bin",
+      "hash": "0x7cda6e9190db84bdf751af19484ba9573fc4e1fb287c31755c53b3a204b5bee6",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-44.bin",
+      "hash": "0x37b219afab30e9c5c0683b0665db77f6f1a0ff5c9379cf68cae824f51a8cc105",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-50.bin",
+      "hash": "0x2db56b2f2e22def4d41257e8163148ebdea70656b3836b0aab5167002f79ff4a",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-40.bin",
+      "hash": "0x6ffb87ea15ec42d4f849d387c0fc108c38bee93c7a6a91efd7455e065bf96f0c",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-41.bin",
+      "hash": "0xb2199623af5e9772e6495541f050c172ca427afed497451ce67f74135524dd44",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-43.bin",
+      "hash": "0xe61c02ac2c992f013a323ab5f0535eb3671dd71e6cfc4443f73ca687300e5b25",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-42.bin",
+      "hash": "0xcde7beddc96b29df94c42462a04ed2a769aee83590cd269f9d21f56a95a8ef1f",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-25.bin",
+      "hash": "0x30e263ed6e9e4b2f2cf1c275d56a46cb7cdc274c92678413a2bde9444b72cd81",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-31.bin",
+      "hash": "0xb29d3cd9f132dbb4ad3d582625ef6c8244f3b5816cb5885b9bcae08be3615003",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-19.bin",
+      "hash": "0x23b4ffe679c136c544ce3eeed6b8417c0c2f824391d0f603ac2344a6a7b55535",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-18.bin",
+      "hash": "0xd21a4e271e66271fd94d079ef790218b16c0a3ded1d439c3548a8948273b864b",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-30.bin",
+      "hash": "0x2bacb51d9f7b0df4a00726d956068642f99274b09f0eb273b954079f098d6a9d",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-24.bin",
+      "hash": "0xa78f68d994c2e16f45ad7ec7bb70991250ef5fcbfd33975491242f61973f7051",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-32.bin",
+      "hash": "0x61b89c269dcd5212784ea2e97ebb9f3408f3390ea66dcd6de83dc20922f1daf6",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-26.bin",
+      "hash": "0x25a58c141057a02cc0101fb4573bd78679bd2074c8b0df927ac36b7d564b149d",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-27.bin",
+      "hash": "0x0d40fc2fcebe3b2cbbdb929f0d3b26b22bbd5ffb64a411b948adc20df26e0481",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-33.bin",
+      "hash": "0x8fa9856818d2e75cd55796426647c871be50e7348a6644857470aa46b97a3b21",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-37.bin",
+      "hash": "0x52f1ae47253d52a6a68389007723920adb662e90048e5d7e17795ded01d65e3c",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-23.bin",
+      "hash": "0xb8326f60455489017f9b7c35f1ecff59b64474615129e5dbce38d15f09728394",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-22.bin",
+      "hash": "0x9633dba4fe7933151d2ab38c7f4b0e3ab6a959c30d4ec27554d332a702c63b99",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-36.bin",
+      "hash": "0xc3b91c2f79e9cfaf96e0ae77a72bd3b951a7dff962cfe6894d3e307c9fb7595d",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-08.bin",
+      "hash": "0xe34beb4f1d409a715f3074bf9b59c251646c119298d8d5a5d03377c1c15039c0",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-20.bin",
+      "hash": "0x94b5bfc13a7a974c880856f5c3ed9d3c1a8177759d4851c525a08ce6351ad18b",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-34.bin",
+      "hash": "0xc488f0275230ad0e607e352cde73d061e9949db063ab308ab7a80ce0e246fbe1",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-35.bin",
+      "hash": "0x78edc78a185085c76426baf62130ae65241de73bd704a213f45f5446bf82f624",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-21.bin",
+      "hash": "0x00f765b0c8fa31bbc36027c6dcdef3f6869e35125a58fcf0028b3ebffdb5c9c0",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-09.bin",
+      "hash": "0x3a2428454b581b185d63303dff3dce2c8b47f5f8c1c4e7bd440bd15e5a08f2e2",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-04.bin",
+      "hash": "0xfa579ee51cd74ed40fbd5f79bf15f6fbb5e278563c1cbe3d4fab18fc542552cc",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-10.bin",
+      "hash": "0xbbe310890b64f46759cb7fb80f4bf42151cca21b1a6792555ccc411732c02487",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-38.bin",
+      "hash": "0xdd7a54ea7ebcd66f84602b9d76e82df4feafdc9927914caee12da7d4c7185d10",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-39.bin",
+      "hash": "0x1a2eed7777455e9e95422f1459dd714b0375d47629dcd11a1482ee7372fde266",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-11.bin",
+      "hash": "0x5b6ffa83321d46302f43300b3af1522a211514ab6c2a08c35e95b65c1d13bdcc",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-05.bin",
+      "hash": "0x1af42967fffdfb8b3e105d502288d19edcfe3f3e9406d5d322377756189ef6de",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-13.bin",
+      "hash": "0x094c8055d6ffd7cde8caf2d8b71965def0b4f7bf0035490f8e8bc0baea07634f",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-07.bin",
+      "hash": "0x6a80cc14f2caf43e4aaf48e5837c821e8c4c32752d52f512b910a95c88a56da8",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-06.bin",
+      "hash": "0x3a49b9a9ddebbc0d280294256b3849138eed0a48d306d5b892d0273818498775",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-12.bin",
+      "hash": "0x9d5b9e13798b755a03332ae6a08b35a22ab9ef43997ec0276f3f3d869d028305",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-16.bin",
+      "hash": "0x6430623176533229a8b6b5f7007902fd3c4e78352db96f6a55a60eecd3ffb01a",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-02.bin",
+      "hash": "0xc8822d5db3d467189b209fc40252742f5675e336ac075a212f31704a7e2a3c69",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-03.bin",
+      "hash": "0x605de97e10843ba3c548c6adc60b057862c61e50d6435a7eda2400dfd453669d",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-17.bin",
+      "hash": "0x8fea2088d1d9ac4b74f8541e6583e8fa9bacb9be1785a6a24a4c0687100ab448",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-29.bin",
+      "hash": "0x0ba9ec5527c9c080a9fdcd48e60f6b93903d88993e0a990557f5d1649b2017df",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-01.bin",
+      "hash": "0x8e6ed37cf2ee5b2f47a45a88bc90381e7553dead498c1781412dbe33807f867f",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-15.bin",
+      "hash": "0x58071fa31899d80ed04d947881c8438bbbbaefd893efd5b392766a4a58759952",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-14.bin",
+      "hash": "0x270756ab8e06caf5c6e093df485f4ecf199ebb4e81091307af0c4943ad0e80a9",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-00.bin",
+      "hash": "0x17bb6640309ffcba584d99c7cccaa3d80aaa85bcdb5379582211b46e7bfb5caf",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-28.bin",
+      "hash": "0x9e39f48f973cc99b0a03df1949eda1d3a5d68f5cae2f0697faa23a140e31742f",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/8051ca6f46e1-p00.bin",
+      "hash": "0x23772235cfa42cc13f474b54e5046381109afd4feb60fee57a04506043698bd0",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/8051ca6f46e1-p01.bin",
+      "hash": "0xe08e3cae3ea18560f5066c8df9d44a5a9c4f4c69bbd399639ac1fa4b777a9253",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/8051ca6f46e1-p02.bin",
+      "hash": "0xf63ad2a524e10005949d7028bc2379f8b11bbead490fb8be0b59cb220c1d6f61",
+      "size": 18594,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-49.bin",
+      "hash": "0x754408550db29b0f0b0ea48a5c30966b9240a501c9c4c44a08ceeee192214a44",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/apk/02625c5e7d41-48.bin",
+      "hash": "0xc7013a9c1eeddafb840fbee1d16e86c2d7c819e48fa123486cea1a4b251ca09c",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/keep/c9e927a2165f-09.bin",
+      "hash": "0x6ef1d3b25d741b0b0c7554bf9db50275dd3e47192af6013d756a394064a7e55d",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/keep/c9e927a2165f-08.bin",
+      "hash": "0x17e08df22305addd5d7c0c8fe7dd23974b274a28f30694742d52db933d5c6f70",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/keep/c9e927a2165f-00.bin",
+      "hash": "0x9695f62388d73b47e0bb3913ebda168bbacf0c34146278b64f3a2a70493ac936",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/keep/c9e927a2165f-01.bin",
+      "hash": "0xa3a3921346481cd97c8dbe585ed5e4d8021f45fb806dabd47c3a1aefe024dfc8",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/keep/c9e927a2165f-03.bin",
+      "hash": "0x91692e15390506c65b4aaad01b151d9550d44e7666c2cb0ed0505be722f707fe",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/keep/c9e927a2165f-02.bin",
+      "hash": "0xcd4e1d83deec09b9afe38b62c85b454c7ba909d86c3292ba401a329af7e90f03",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/keep/c9e927a2165f-12.bin",
+      "hash": "0xadab58c1065311605611bc6c926715bd575ae97fbe4dd7efbd076bb74173b3d4",
+      "size": 10433,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/keep/c9e927a2165f-06.bin",
+      "hash": "0x7528f000fbdf2ef6c3fae2e8fb09564b3c0c938b4765040b422f220dbd96ba35",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/keep/c9e927a2165f-07.bin",
+      "hash": "0x7d450dcd266187490abb3b26d90bb8c5014a1352b0c5130693666ca6a124a5f0",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/keep/c9e927a2165f-05.bin",
+      "hash": "0x222851b537dff20dbb1bec9cac2a2bc6d7815430ff15ac56b23688199604c46b",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/keep/c9e927a2165f-11.bin",
+      "hash": "0xf27e46b6ba9fd919c69ee07b369d211a0d668af00dfa7f1ca69bfa0724e83c5a",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/keep/c9e927a2165f-10.bin",
+      "hash": "0x806fc496ab233cbb81160e575f089d215e48db5128acccbb4122366a9c0b937f",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "download/keep/c9e927a2165f-04.bin",
+      "hash": "0xdce4afa8797a5818a596dfd29c635284439fee1d06cf3db32bae717e4dab33e4",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "well-known/assetlinks.json",
+      "hash": "0x8b2552fcd021f73219d5bad54b29f677dd7a2084b44595ad4afaed8d7aae9925",
+      "size": 940,
+      "mime": "application/json"
+    },
+    {
+      "path": "img/art.avif",
+      "hash": "0xfe3d9a44a723408ee236620cfd24b66ebae873801343e7bea1bbeeced148c25e",
+      "size": 29581,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "img/shots.avif",
+      "hash": "0xcfe3fddb5de2d877b7f16d018df67c83d608e9b9b8ec5af789ea425ad9c3be97",
+      "size": 24243,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "qr/qr-1.js",
+      "hash": "0x623c7bff821dbd9e7b5e96b51d74cb3f641987795b5a1405bf32597ac6a419e8",
+      "size": 43705,
+      "mime": "text/javascript"
+    },
+    {
+      "path": "qr/qr-3.js",
+      "hash": "0x76853d158416a62a9afa04d7ef1419ec4f7d194ed1d9897797129ba661f311ad",
+      "size": 43507,
+      "mime": "text/javascript"
+    },
+    {
+      "path": "qr/qr-2.js",
+      "hash": "0x1e59d251b7953a9418e7606ab952123e93dfcbb71e60002dfc3232313b1cf86a",
+      "size": 43491,
+      "mime": "text/javascript"
+    },
+    {
+      "path": "shield/boot-3bc38eb09529.js",
+      "hash": "0xd42b2e952df0e498cadb7ebcef1bd67f1754b75402d66e853b0693994ec62014",
+      "size": 1693,
+      "mime": "text/javascript"
+    },
+    {
+      "path": "shield/index.html",
+      "hash": "0xbdf2e413c75f90e4885676ae2612a2d2f19d7bc41ba8e4c185fbffa2cb78ce8b",
+      "size": 1303,
+      "mime": "text/html"
+    },
+    {
+      "path": "shield/shield-bdf090af326c.css",
+      "hash": "0xffecbb649b6eeb1f48391a540e87ea50699cd4f7013774011fc817eff9ab0514",
+      "size": 18043,
+      "mime": "text/css"
+    },
+    {
+      "path": "shield/parts/3bc38eb09529-01.bin",
+      "hash": "0x9920e1d8e9c709ab3c247aef6c1c362a77da4ea914bc204e5485655bc7170a5b",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "shield/parts/3bc38eb09529-00.bin",
+      "hash": "0xc271e1025a22e0806e6443334fced47709d894471d81916d08888a29dc2ee555",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "shield/parts/3bc38eb09529-02.bin",
+      "hash": "0xd8f475837050ab972b76ec32859d3cb3e095a69de87a9f140738807ed961f39a",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "shield/parts/3bc38eb09529-03.bin",
+      "hash": "0x318d4ee9b9d343208eb7f11cf41cbc5dc1b4a17282eac008098d363318ec61af",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "shield/parts/3bc38eb09529-07.bin",
+      "hash": "0xa308469a2a1f753a9cd568e0ec2482ffe2b27e3a94f4f63f0a65146ff3edf90c",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "shield/parts/3bc38eb09529-06.bin",
+      "hash": "0x0fe84d473bbbf556a20ab0cae0b6417cf99c744940b1ddc6798e37d7cc18d34d",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "shield/parts/3bc38eb09529-10.bin",
+      "hash": "0xc8ee2c60e19b139740fdc53e2b1cc9961afc6b405a66fe0722bd4e8d0d7c081c",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "shield/parts/3bc38eb09529-04.bin",
+      "hash": "0xddeb3004e254fd41bad77c0528cd313310d40b3541362be2d26181ab97d895f6",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "shield/parts/3bc38eb09529-05.bin",
+      "hash": "0x43eaa69c52598c968618685c875b06c29b1269b90ef1c91c5ca33dd70f0d7c55",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "shield/parts/3bc38eb09529-11.bin",
+      "hash": "0xa39a560f2e2c1fa17c8baea6e4a89fc9f8b6e95df16aa2a44b77ad474b6025fc",
+      "size": 12224,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "shield/parts/3bc38eb09529-08.bin",
+      "hash": "0xee2dd3650daa492826535002d38787cb917852197ae714ceb3cd251b371458c4",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "shield/parts/3bc38eb09529-09.bin",
+      "hash": "0x3d93ff8ef4bbae573e45bc28f98f40eeedd9d8eb51cacc21bf51eb55c711949d",
+      "size": 24575,
+      "mime": "application/octet-stream"
+    },
+    {
+      "path": "keep/keep-f1318acee828.css",
+      "hash": "0x8bc30f9f49d56d542404b6846ae1ecb1d0e3e2607d503d8d400534fa047567df",
+      "size": 8947,
+      "mime": "text/css"
+    },
+    {
+      "path": "keep/index.html",
+      "hash": "0x6f49b2d86f97d5b7d6494a7deb7d08a709e4f675af4a2d2dc0565f94c570949e",
+      "size": 13396,
+      "mime": "text/html"
+    }
+  ]
+}
